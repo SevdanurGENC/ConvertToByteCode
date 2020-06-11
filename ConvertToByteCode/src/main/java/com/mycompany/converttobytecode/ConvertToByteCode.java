@@ -21,10 +21,19 @@ public class ConvertToByteCode extends javax.swing.JFrame {
      * Creates new form ConvertToByteCode
      */
     public ConvertToByteCode() {
-        
+
         initComponents();
+        
+        jRadioButton2.setSelected(true);
+        jTextArea1.setText("");
+        jTextArea2.setText("");
+        jTextField1.setEnabled(true);
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(false);
+        
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,20 +155,20 @@ public class ConvertToByteCode extends javax.swing.JFrame {
     public String javaFileName = null;
     public String pathNameOfTemp = "C:\\Users\\Nano\\Documents\\NetBeansProjects\\ConvertToByteCode\\temp\\";
     public String getDirectory = "C:\\Users\\Nano\\Documents\\NetBeansProjects\\ConvertToByteCode\\temp\\";
-    
+
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+
         chooser = new JFileChooser(getDirectory);
-        
+
         int returnVal = chooser.showOpenDialog(null);
-        
+
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             try {
                 filePathName = chooser.getSelectedFile();
                 javaFileName = filePathName.getName();
                 javaFileName = javaFileName.substring(0, javaFileName.indexOf("."));
-                
+
                 jTextField1.setText(filePathName.toString());
                 in = new BufferedReader(new FileReader(filePathName));
                 String line = in.readLine();
@@ -179,23 +188,23 @@ public class ConvertToByteCode extends javax.swing.JFrame {
                     Logger.getLogger(ConvertToByteCode.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
+
         }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         saveClassAndByteCode();
 
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     public void saveClassAndByteCode() {
-        
+
         try {
             GenClass.generateClass(pathNameOfTemp, javaFileName);
             ByteCodeEditor.Main(pathNameOfTemp, javaFileName);
-            
+
             in = new BufferedReader(new FileReader(new File(pathNameOfTemp + javaFileName + "_ByteCode.txt")));
             String line = in.readLine();
             jTextArea2.setText("");
@@ -203,16 +212,17 @@ public class ConvertToByteCode extends javax.swing.JFrame {
                 jTextArea2.append(line + "\n");
                 line = in.readLine();
             }
-            
+            JOptionPane.showMessageDialog(null, javaFileName + "..class and " + javaFileName + "_ByteCode.txt files saved");
+
         } catch (Exception ex) {
             Logger.getLogger(ConvertToByteCode.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+
         FileWriter pw = null;
         try {
             javaFileName = JOptionPane.showInputDialog("Java File icin bir isim veriniz : ");
@@ -224,17 +234,19 @@ public class ConvertToByteCode extends javax.swing.JFrame {
         } finally {
             try {
                 pw.close();
+                JOptionPane.showMessageDialog(null, javaFileName + ".java file saved");
             } catch (IOException ex) {
                 Logger.getLogger(ConvertToByteCode.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        
+
         jTextArea1.setText("");
+        jTextArea2.setText("");
         jTextField1.setEnabled(false);
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
@@ -243,13 +255,14 @@ public class ConvertToByteCode extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-       
+
         jTextArea1.setText("");
+        jTextArea2.setText("");
         jTextField1.setEnabled(true);
         jButton1.setEnabled(true);
         jButton2.setEnabled(true);
         jButton3.setEnabled(false);
-        
+
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
