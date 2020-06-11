@@ -1,0 +1,13 @@
+MethodName : main
+0: iconst_1
+1: istore_1
+2: iconst_2
+3: istore_2
+4: iload_1
+5: iload_2
+6: iadd
+7: istore_3
+8: getstatic #2 = Field java.lang.System.out(Ljava/io/PrintStream;)
+11: iload_3
+12: invokevirtual #3 = Method java.io.PrintStream.println((I)V)
+15: return
