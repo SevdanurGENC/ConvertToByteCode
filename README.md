@@ -1,5 +1,5 @@
 # ConvertToByteCode
-Compile to java bytecode with using Java.
+Compile to java bytecode with using Javassist.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
