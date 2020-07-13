@@ -1,0 +1,10 @@
+MethodName : main
+0: sipush 580
+3: istore_1
+4: bipush 20
+6: istore_2
+7: iload_1
+8: iload_2
+9: iadd
+10: istore_3
+11: return

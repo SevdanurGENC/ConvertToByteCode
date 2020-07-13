@@ -1,0 +1,14 @@
+MethodName : main
+0: invokestatic #2 = Method Test.printOne(()V)
+3: invokestatic #2 = Method Test.printOne(()V)
+6: invokestatic #3 = Method Test.printTwo(()V)
+9: return
+MethodName : printOne
+0: getstatic #4 = Field java.lang.System.out(Ljava/io/PrintStream;)
+3: ldc #5 = "Hello World"
+5: invokevirtual #6 = Method java.io.PrintStream.println((Ljava/lang/String;)V)
+8: return
+MethodName : printTwo
+0: invokestatic #2 = Method Test.printOne(()V)
+3: invokestatic #2 = Method Test.printOne(()V)
+6: return
